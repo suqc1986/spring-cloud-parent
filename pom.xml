@@ -1,0 +1,26 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.biancheng</groupId>
+	<artifactId>spring-cloud-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>eureka-client-article-consumer-8082</module>
+		<module>eureka-client-user-provider-8083</module>
+		<module>eureka-client-user-service-8081</module>
+		<module>eureka-server-cluster-8762</module>
+		<module>eureka-server-master-8761</module>
+		<module>feign-inherit-api</module>
+		<module>feign-inherit-consume-8089</module>
+		<module>feign-inherit-provide-8088</module>
+		<module>hystrix-dashboard-demo-9011</module>
+		<module>hystrix-native-demo</module>
+		<module>ribbon-native-demo</module>
+		<module>spring-boot-starter-demo</module>
+		<module>spring-boot-web</module>
+		<module>spring-rest-template</module>
+	</modules>
+</project>

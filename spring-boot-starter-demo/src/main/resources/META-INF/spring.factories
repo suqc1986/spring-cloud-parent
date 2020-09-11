@@ -1,0 +1,2 @@
+#采用註解的方式 注釋掉如下代碼
+#org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.biancheng.autoconfig.UserAutoConfig

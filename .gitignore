@@ -1,0 +1,8 @@
+/.metadata/
+.classpath
+*.class
+.settings
+.project
+target/
+rebel*.xml
+.factorypath
