@@ -22,5 +22,6 @@
 		<module>spring-boot-starter-demo</module>
 		<module>spring-boot-web</module>
 		<module>spring-rest-template</module>
+		<module>hystrix-feign-demo-8084</module>
 	</modules>
 </project>
