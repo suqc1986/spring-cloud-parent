@@ -1,4 +1,4 @@
-package com.biancheng.filter;
+package com.biancheng.pojo;
 
 public class ResponseData {
 	String msg;
