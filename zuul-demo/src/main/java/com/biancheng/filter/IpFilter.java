@@ -47,7 +47,8 @@ public class IpFilter extends  ZuulFilter{
             ResponseData data = ResponseData.fail("非法请求 ", ResponseCode.NO_AUTH_CODE.getCode());
             ctx.setResponseBody(JSONObject.toJSONString(data));
             ctx.getResponse().setContentType("application/json; charset=utf-8");
-            int a = 1/0;
+           //TODO 测试error拦截器
+           //int a = 1/0;
             return null;
         }
         return null;

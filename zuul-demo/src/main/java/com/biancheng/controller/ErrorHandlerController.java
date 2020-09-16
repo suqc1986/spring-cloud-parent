@@ -15,7 +15,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.biancheng.pojo.ResponseCode;
 import com.biancheng.pojo.ResponseData;
 
-@RestController
+//@RestController
 public class ErrorHandlerController implements ErrorController {
 	@Autowired
 	private ErrorAttributes errorAttributes;
