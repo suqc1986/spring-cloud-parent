@@ -1,4 +1,4 @@
-package com.biancheng.hystrix;
+package com.biancheng.fallback;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -7,18 +7,24 @@ import java.nio.charset.Charset;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.netflix.zuul.filters.route.FallbackProvider;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 
+import com.alibaba.fastjson.JSONObject;
 import com.biancheng.pojo.ResponseCode;
 import com.biancheng.pojo.ResponseData;
-import com.netflix.client.http.HttpHeaders;
 import com.netflix.zuul.context.RequestContext;
-
+/**
+ * 1.后端服务先启用，在停用发生异常时走这个类，继续请求走MyZullController自己的请求不走这，走统一异常处理/error
+ * @author suqc
+ *
+ */
 @Component
-public class ServiceConsumerFallbackProvider implements ZuulFallbackProvider {
+public class ServiceConsumerFallbackProvider implements FallbackProvider{
     private Logger log = LoggerFactory.getLogger(ServiceConsumerFallbackProvider.class);
 
     @Override
@@ -54,8 +60,8 @@ public class ServiceConsumerFallbackProvider implements ZuulFallbackProvider {
                     log.error("", cause.getCause());
                 }
                 RequestContext ctx = RequestContext.getCurrentContext();
-                ResponseData data = ResponseData.fail("服务器内部错误 ", ResponseCode.SERVER_ERROR_CODE.getCode());
-                return new ByteArrayInputStream(JsonUtils.toJson(data).getBytes());
+                ResponseData data = ResponseData.fail("服务器内部错误(Zuul后台服务不可用，触发回退机制，回退类ServiceConsumerFallbackProvider) "  , ResponseCode.SERVER_ERROR_CODE.getCode());
+                return new ByteArrayInputStream(JSONObject.toJSONString(data).getBytes());
             }
 
             @Override

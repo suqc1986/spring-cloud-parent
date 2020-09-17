@@ -15,7 +15,7 @@ import org.springframework.web.context.request.ServletWebRequest;
 import com.biancheng.pojo.ResponseCode;
 import com.biancheng.pojo.ResponseData;
 
-//@RestController
+@RestController
 public class ErrorHandlerController implements ErrorController {
 	@Autowired
 	private ErrorAttributes errorAttributes;
@@ -30,6 +30,7 @@ public class ErrorHandlerController implements ErrorController {
 		Map<String, Object> errorAttributes = getErrorAttributes(request);
 		String message = (String) errorAttributes.get("message");
 		String trace = (String) errorAttributes.get("trace");
+		message += "(Zull-ErrorHandlerController全局异常处理)";
 		if (StringUtils.isNotBlank(trace)) {
 			message += String.format("and trace %s", trace);
 		}
