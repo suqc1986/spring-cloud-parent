@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.biancheng.filter.ErrorFilter;
 import com.biancheng.filter.IpFilter;
+import com.biancheng.filter.PostFilter;
 import com.biancheng.filter.ReceDataFilter;
 import com.netflix.zuul.ZuulFilter;
 
@@ -24,5 +25,9 @@ public class ZuulConfig {
 	public ZuulFilter errorFilter() {
 		return new ErrorFilter();
 	}
-
+	
+	@Bean
+	public ZuulFilter postFilter() {
+		return new PostFilter();
+	}
 }
