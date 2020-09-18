@@ -52,5 +52,6 @@
 		<module>spring-rest-template</module>
 		<module>hystrix-feign-demo-8084</module>
 		<module>zuul-demo-2103</module>
+		<module>gateway-demo-2001</module>
 	</modules>
 </project>
