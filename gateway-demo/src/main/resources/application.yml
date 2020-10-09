@@ -39,4 +39,47 @@ spring:
         uri: lb://eureka-client-user-service
         predicates:
           - Path=/user/hello
-       
+#       过滤器工厂   
+#   AddRequestHeader 过滤器工厂   request.getHeader("X-Request-Foo")
+      - id: add_request_header_route
+        uri: http://c.biancheng.net
+        filters:
+          - AddRequestHeader=X-Request-Foo, Bar
+          
+#	    - id: fsh-house
+#        uri: lb://fsh-house
+#	      predicates: 
+#	      - Path=/house/**
+#	      filters:
+#	      - name: RequestRateLimiter
+#	      args:
+#	        redis-rate-limiter.replenishRate: 10
+#	        redis-rate-limiter.burstCapacity: 20
+#	        key-resolver: "#{@ipKeyResolver}"            
+#  redis:
+#    host: 127.0.0.1
+#    port: 6379
+     
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          

@@ -7,7 +7,7 @@
 		<artifactId>spring-cloud-parent</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gateway-demo-2001</artifactId>
+	<artifactId>gateway-demo-2002</artifactId>
 	
 	<dependencies>
 		<dependency>
@@ -17,6 +17,11 @@
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- 限流整合redis -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
 		</dependency>
 	</dependencies>
 
